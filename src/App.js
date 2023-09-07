@@ -4,10 +4,9 @@ import UilReact from '@iconscout/react-unicons/icons/uil-react'
 
 function App() {
   return (
-    <div className="App">
- <h1 className='text-2xl font-bold text-red-500'>Hello</h1>
- <UilReact size={50}/>
-    </div>
+
+    <div className="mx-auto max-w-screen-md mt-4 py-32 px-32 bg-gradient-to-br 
+    from-cyan-600 to-blue-700 h-fit shadow-xl shadow-gray-400 rounded-[5px]"></div>
   );
 }
 
