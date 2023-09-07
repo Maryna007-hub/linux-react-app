@@ -27,7 +27,7 @@ function TopButtons() {
   return (
     <div className='flex items-center justijy-center my-6'>
 {cities.map((city) => (
-    <button className='text-whte text-lg font-medium'>{city.title}</button>
+    <button className='text-white text-lg font-medium'>{city.title}</button>
 ))}
     </div>
   )
