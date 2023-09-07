@@ -33,4 +33,4 @@ function TopButtons() {
   )
 }
 
-export default TopButtons
+export default TopButtons;
