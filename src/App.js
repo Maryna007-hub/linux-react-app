@@ -12,6 +12,7 @@ function App() {
     from-cyan-600 to-blue-700 h-fit shadow-xl shadow-gray-400 rounded-[7px]">
       <TopButtons/>
       <Inputs/>
+      
       <TimeAndLocation/>
     </div>
   );
