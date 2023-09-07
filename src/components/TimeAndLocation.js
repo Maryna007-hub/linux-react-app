@@ -8,6 +8,7 @@ function TimeAndLocation() {
               Monday, 7 September 2023   |   Local time: 12:55 PM
             </p>
         </div>
+        
     </div>
   )
 }
