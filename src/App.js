@@ -3,6 +3,7 @@ import './App.css';
 import UilReact from '@iconscout/react-unicons/icons/uil-react'
 import TopButtons from './components/TopButtons';
 import Inputs from './components/Inputs';
+import TimeAndLocation from './components/TimeAndLocation';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     from-cyan-600 to-blue-700 h-fit shadow-xl shadow-gray-400 rounded-[7px]">
       <TopButtons/>
       <Inputs/>
+      <TimeAndLocation/>
     </div>
   );
 }
