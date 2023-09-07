@@ -1,8 +1,35 @@
 import React from 'react'
 
 function TopButtons() {
+    const cities = [
+        {
+          id:1,
+          title: 'Lisbon'
+        },
+        {
+          id:2,
+          title: 'Madrid'
+        },
+        {
+          id:3,
+          title: 'Paris'
+        },
+        {
+          id:4,
+          title: 'Berlin'
+        },
+        {
+          id:5,
+          title: 'London'
+        }
+    
+      ]
   return (
-    <div>TopButtons</div>
+    <div className='flex items-center justijy-center my-6'>
+{cities.map((city) => (
+    <button className='text-whte text-lg font-medium'>{city.title}</button>
+))}
+    </div>
   )
 }
 
