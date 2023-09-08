@@ -1,11 +1,8 @@
-import { DateTime } from "luxon"
+import { DateTime } from "luxon";
+
 const API_KEY = 'df04a6426eb8c9305ebb65c9deb52f35';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/';
 
-//weather?q={city name}&appid={API key}';
-
-// https://api.openweathermap.org/data/3.0/onecall?
-//lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
 const getWeatherData = (infoType,searchParams) => {
     const url = new URL(BASE_URL + '/' + infoType);
@@ -31,16 +28,16 @@ const formatCurrentWeather = (data) => {
     name, dt, country, sunrise, sunset, details, icon, speed}
     }
     const formatForecastWeather = (data) => {
-        let { timezone, daily} = data;
-        daily = daily.slice(1,6).map(d => {               //daily 2 forecast //
+        let { timezone, daily } = data;
+        daily = daily.slice(1, 6).map(daily => {
             return {
-                title: formatToLocalTime(d.dt, timezone, 'ccc'),
-                temp: d.temp.day,
-                icon: d.weather[0].icon
+                title: formatToLocalTime(daily.dt, timezone, 'ccc'),
+                temp: daily.temp.day,
+                icon: daily.weather[0].icon
             }
         });
-        return {timezone, daily};
-}
+        return { timezone, daily };
+};
 
 
 const getFormattedWeatherData = async (searchParams) => {
@@ -48,7 +45,7 @@ const getFormattedWeatherData = async (searchParams) => {
     ('weather', searchParams).then(formatCurrentWeather)
     const {lat, lon} = formattedCurrentWeather
 
-    const formattedForecastWeather = await getWeatherData('onecall', {
+    const formattedForecastWeather = await getWeatherData('forecast', {
         lat, lon, exclude: 'current,minutely,alerts', units: searchParams.units
     }).then(formatForecastWeather);
 
@@ -59,7 +56,12 @@ const formatToLocalTime = (
     zone,
     format = "ccc, dd LLL yyyy' | Local time: 'h:mm a"
     ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+
+    export default getFormattedWeatherData;
+
+    /*DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
     
     const iconUrlFromCode = (code) => `http://openweathermap.org/img/wn/${code}@2x.png`;
+
     export default getFormattedWeatherData;
-    export {formatToLocalTime, iconUrlFromCode};
+    export {formatToLocalTime, iconUrlFromCode};*/
