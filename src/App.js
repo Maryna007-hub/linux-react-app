@@ -7,8 +7,16 @@ import TimeAndLocation from './components/TimeAndLocation';
 import TemperatureAndDetails
  from './components/TemperatureAndDetails';
 import Forecast from './components/Forecast';
+import getWeatherData from './services/weatherService';
 
 function App() {
+  const fetchWeather = async () => {
+    const data= await getWeatherData('weather', { q: 'London' });
+    console.log(data);
+  }
+
+  fetchWeather ();
+
   return (
 
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-28 bg-gradient-to-br 
@@ -18,7 +26,8 @@ function App() {
     
       <TimeAndLocation/>
       <TemperatureAndDetails/>
-      <Forecast/>
+      <Forecast title='temperature evolution per day'/>
+      <Forecast title='daily forecast'/>
     </div>
   );
 }
