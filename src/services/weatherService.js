@@ -14,4 +14,10 @@ const getWeatherData = (infoType,serchParams) => {
     .then((res) => res.json())
     
 }
-export default getWeatherData;
+
+const formatCurrentWeather = (data) => {
+
+}
+const getFormattedWeatherData = async (serchParams) => {
+    const formattedCurrentWeather = await getWeatherData('weather', serchParams).then(formatCurrentWeather)
+}
