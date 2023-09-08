@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function TemperatureAndDetails() {
   return (
@@ -6,4 +6,4 @@ function TemperatureAndDetails() {
   )
 }
 
-export default TemperatureAndDetails
+export default TemperatureAndDetails;
