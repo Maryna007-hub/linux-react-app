@@ -6,12 +6,12 @@ function Forecast() {
         <div className='flex items-center justify-start mt-6'>
          <p className='text-white font-medium uppercase'>
 
-          {/* {title} */}
+          dailyforecast
         
         </p>
         </div>
         <hr className='my-2'/>
-        
+
 {/*  hourly  forecast */}
 <div className='flex flex-row items-center justify-between text-white'>{/* main div*/} 
        
