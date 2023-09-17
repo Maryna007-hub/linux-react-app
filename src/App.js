@@ -1,6 +1,6 @@
 
 import './App.css';
-import UilReact from '@iconscout/react-unicons/icons/uil-react'
+// import UilReact from '@iconscout/react-unicons/icons/uil-react'
 import TopButtons from './components/TopButtons';
 import Inputs from './components/Inputs';
 import TimeAndLocation from './components/TimeAndLocation';
@@ -31,8 +31,8 @@ const fetchWeather = async () => {
 
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-28 bg-gradient-to-br 
     from-cyan-600 to-blue-700 h-fit shadow-xl shadow-gray-400 rounded-[7px]">
-      <TopButtons/>
-      <Inputs/>
+      <TopButtons setQuery={setQuery}/>
+      <Inputs setQuery={setQuery} units={setUnits} setUnits={setUnits}/>
     
     {weather && (
 <div>
