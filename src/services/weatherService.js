@@ -8,13 +8,15 @@ const getWeatherData = (infoType,searchParams) => {
     const url = new URL(BASE_URL + '/' + infoType);
     url.search = new URLSearchParams({...searchParams, appid:API_KEY});
    
-    return fetch(url).then((res) => res.json())  
+    return fetch(url)
+    .then((res) => res.json()) 
+    .then((data) => data);
 }
 
 const formatCurrentWeather = (data) => {
     const {
         coord: {lat, lon},
-         main: {temp, feels_like, temp_min, temp_max,humidity},
+         list: {temp, feels_like, temp_min, temp_max,humidity},
          name,
          dt,
          sys:{country, sunrise, sunset},
@@ -28,15 +30,16 @@ const formatCurrentWeather = (data) => {
     name, dt, country, sunrise, sunset, details, icon, speed}
     }
     const formatForecastWeather = (data) => {
-        let { timezone, daily } = data;
-        daily = daily.slice(1, 6).map(daily => {
+        let { timezone, list } = data;
+        list = list.slice(1, 6).map(list => {
             return {
-                title: formatToLocalTime(daily.dt, timezone, 'ccc'),
-                temp: daily.temp.day,
-                icon: daily.weather[0].icon
+                title: formatToLocalTime(list.dt, timezone, 'ccc'),
+                temp: list.temp,
+                icon: list.weather[0].icon
             }
         });
-        return { timezone, daily };
+       
+        return { timezone, list };
 };
 
 
@@ -60,9 +63,9 @@ const formatToLocalTime = (
 
     export default getFormattedWeatherData;
 
-    /*DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+  
     
     const iconUrlFromCode = (code) => `http://openweathermap.org/img/wn/${code}@2x.png`;
 
-    export default getFormattedWeatherData;
-    export {formatToLocalTime, iconUrlFromCode};*/
+   
+    export {formatToLocalTime, iconUrlFromCode};
