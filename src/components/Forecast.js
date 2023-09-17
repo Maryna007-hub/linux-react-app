@@ -1,63 +1,29 @@
 import React from 'react'
+import { iconUrlFromCode } from '../services/weatherService'
 
-function Forecast() {
+function Forecast({title, items}) {
+  console.log(items)
   return (
     <div>
         <div className='flex items-center justify-start mt-6'>
          <p className='text-white font-medium uppercase'>
-
-          hourly forecast
-        
+         {title}
         </p>
         </div>
         <hr className='my-2'/>
 
 {/*  hourly  forecast */}
-<div className='flex flex-row items-center justify-between text-white'>{/* main div*/} 
-       
-        <div className='flex flex-col items-center justify-center'> {/* 5 smalldiv inside*/} 
+<div className='flex flex-row items-center justify-between text-white'>
+       {items.map(item => (
+      <div className='flex flex-col items-center justify-center'> 
           <p>
-           04:30 PM
+           {item.title}
          </p>
-         <img src='http://openweathermap.org/img/wn/01d@2x.png'
+         <img src={iconUrlFromCode(item.icon)}
           alt='' className='w-12 my-1'/>
-         <p>30°</p>
+         <p>{`${item.temp.toFixed()}°`}</p>
         </div>
-
-        <div className='flex flex-col items-center justify-center'> {/* 5 smalldiv inside*/} 
-          <p>
-           04:30 PM
-         </p>
-         <img src='http://openweathermap.org/img/wn/01d@2x.png'
-          alt='' className='w-12 my-1'/>
-         <p>30°</p>
-        </div>
-
-        <div className='flex flex-col items-center justify-center'> {/* 5 smalldiv inside*/} 
-          <p>
-           04:30 PM
-         </p>
-         <img src='http://openweathermap.org/img/wn/01d@2x.png'
-          alt='' className='w-12 my-1'/>
-         <p>30°</p>
-        </div>
-        <div className='flex flex-col items-center justify-center'> {/* 5 smalldiv inside*/} 
-          <p>
-           04:30 PM
-         </p>
-         <img src='http://openweathermap.org/img/wn/01d@2x.png'
-          alt='' className='w-12 my-1'/>
-         <p>30°</p>
-        </div>
-
-        <div className='flex flex-col items-center justify-center'> {/* 5 smalldiv inside*/} 
-          <p>
-           04:30 PM
-         </p>
-         <img src='http://openweathermap.org/img/wn/01d@2x.png'
-          alt='' className='w-12 my-1'/>
-         <p>30°</p>
-        </div>
+       ))} 
   </div>
 </div>
   )

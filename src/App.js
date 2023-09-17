@@ -38,7 +38,7 @@ const fetchWeather = async () => {
 <div>
 <TimeAndLocation weather={weather}/>
       <TemperatureAndDetails weather={weather}/>
-      <Forecast titlr='hourly forecast'/>
+      <Forecast title='hourly forecast' items={weather.list}/>
 </div>
 )}
       </div>

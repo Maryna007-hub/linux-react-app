@@ -1,6 +1,5 @@
 import React from 'react';
-import {UilArrowUp,
-  UilArrowDown,
+import {
   UilTemperature,
   UilTear,
   UilWind,
@@ -42,7 +41,7 @@ details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, feels
         </div>
           <div className='flex flex-row items-center justify-center
             space-x-2 text-white text-sm py-3'>
-             <UilSun size={20}/>
+             <UilSun size={19}/>
              <p className='font-light'>
               Rise:{' '}
               <span className='font-medium ml-2'>
@@ -51,21 +50,21 @@ details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, feels
              </p>
              <p className='font-light'>|</p>
 
-             <UilSunset size={20}/>
+             <UilSunset size={19}/>
              <p className='font-light'>
               Set: <span className='font-medium ml-2'>
               {formatToLocalTime(sunset, timezone, 'hh:mm a')}
                 </span>
              </p>
              <p className='font-light'>|</p>
-             <UilSun size={20}/>
+             <UilSun size={19}/>
              <p className='font-light'>
-              High: <span className='font-medium ml-2'>47°</span>
+              High: <span className='font-medium ml-2'>{`${temp_max.toFixed()}°`}</span>
              </p>
              <p className='font-light'>|</p>
              <UilSun size={20}/>
              <p className='font-light'>
-              Low: <span className='font-medium ml-2'>40°</span>
+              Low: <span className='font-medium ml-2'>{`${temp_min.toFixed()}°`}</span>
              </p>
              <p className='font-light'>|</p>
            </div>
