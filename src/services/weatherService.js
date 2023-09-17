@@ -8,7 +8,7 @@ const getWeatherData = (infoType,searchParams) => {
     const url = new URL(BASE_URL + '/' + infoType);
     url.search = new URLSearchParams({...searchParams, appid:API_KEY});
    
-    // onsole.log(url);
+      console.log(url);
     return fetch(url)
     .then((res) => res.json()) 
     };
@@ -29,7 +29,7 @@ const formatCurrentWeather = (data) => {
      return {lat, lon, temp, feels_like, temp_min, temp_max, humidity, 
     name, dt, country, sunrise, sunset, details, icon, speed}
     }
-    
+  
      const formatForecastWeather = (data) => {
 
         let { timezone, list } = data;
@@ -64,6 +64,6 @@ const getFormattedWeatherData = async (searchParams) => {
     ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format); 
 
   const iconUrlFromCode = (code) => `http://openweathermap.org/img/wn/${code}@2x.png`;
-
+   
      export default getFormattedWeatherData;
     export {formatToLocalTime, iconUrlFromCode};

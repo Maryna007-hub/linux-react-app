@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 function App() {
 
 const [query, setQuery] = useState({q: 'Berlin'});
-const [units, setUnits] = useState('matric');
+const [units, setUnits] = useState('metric');
 const [weather, setWeather] = useState(null);
 
 useEffect(() => {
@@ -34,11 +34,14 @@ const fetchWeather = async () => {
       <TopButtons/>
       <Inputs/>
     
-      <TimeAndLocation/>
-      <TemperatureAndDetails/>
-      <Forecast />
-     
-    </div>
+    {weather && (
+<div>
+<TimeAndLocation weather={weather}/>
+      <TemperatureAndDetails weather={weather}/>
+      <Forecast titlr='hourly forecast'/>
+</div>
+)}
+      </div>
   );
 }
 
