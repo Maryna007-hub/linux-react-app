@@ -9,14 +9,23 @@ import TemperatureAndDetails
 import Forecast from './components/Forecast';
 // import getWeatherData from './services/weatherService';
 import getFormattedWeatherData from './services/weatherService';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({ q: 'London' });
-    console.log(data);
-  }
 
-  fetchWeather ();
+const [query, setQuery] = useState({q: 'Berlin'});
+const [units, setUnits] = useState('matric');
+const [weather, setWeather] = useState(null);
+
+useEffect(() => {
+const fetchWeather = async () => {
+  await getFormattedWeatherData({...query, units}).then(data => {
+    setWeather(data);
+  });
+   
+  }
+   fetchWeather ();
+}, [query, units]);
 
   return (
 
